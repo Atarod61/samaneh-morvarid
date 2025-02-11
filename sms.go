@@ -15,8 +15,8 @@ var (
 	authToken     = os.Getenv("TWILIO_AUTH_TOKEN")
 	twilioNumber  = os.Getenv("TWILIO_PHONE_NUMBER")
 	adminNumber   = os.Getenv("ADMIN_PHONE_NUMBER")
-	systemURL     = "https://example.com" // آدرس سامانه خود را اینجا قرار دهید
-	checkInterval = 5 * time.Minute       // فاصله زمانی بین بررسی‌ها
+	systemURL     = "https://dl.jzac.ir/.com" // آدرس سامانه خود را اینجا قرار دهید
+	checkInterval = 5 * time.Minute           // فاصله زمانی بین بررسی‌ها
 )
 
 func main() {
