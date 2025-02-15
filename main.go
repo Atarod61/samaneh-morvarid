@@ -3,15 +3,16 @@ package main
 
 import (
 	"fmt"
-	"myproject/send" // مسیر صحیح پکیج send
 	"net/http"
 	"sync"
 	"time"
+
+	"github.com/Atarod61/myproject/send" // مسیر صحیح پکیج send
 )
 
 var (
 	urlsToCheck = []string{
-		"https://exampleadddd.com",
+		"https://dl.jzac.ir/",
 		"https://google.com",
 	}
 	statusMap = make(map[string]string)
