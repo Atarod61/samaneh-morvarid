@@ -7,6 +7,7 @@ import (
 	"strings"
 	"sync"
 	"time"
+"panel.asanak.com/webservice/v1rest/sendsms"
 )
 
 var (
@@ -19,9 +20,9 @@ var (
 
 	// SMS Configuration - Replace with your actual credentials
 	smsURL         = "https://panel.asanak.com/webservice/v1rest/sendsms"
-	smsUsername    = "xxxxxxxxx"  // Replace with your username
+	smsUsername    = "xxxxxxx"  // Replace with your username
 	smsPassword    = xxxxxxx"      // Replace with your password
-	smsSource      = "xxxxxxxhttp" // Replace with your source number
+	smsSource      = "98xxxxxxx" // Replace with your source number
 	smsDestination = "98xxxxxxx" // Replace with your destination number
 )
 

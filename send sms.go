@@ -1,4 +1,4 @@
-package main
+package send
 
 import (
 	"fmt"
@@ -7,10 +7,10 @@ import (
 	"strings"
 )
 
-func main() {
+func SendSMS() {
 	url := "https://panel.asanak.com/webservice/v1rest/sendsms"
 	str := "username=xxxxxxxx&password=xxxxxx&" +
-		"source=98xxxxxxxx&destination=98xxxxxxx&message=سلام" + url
+		"source=98xxxxxxxx&destination=98xxxxxxx&message=سایت خراب شد،سلام" + url
 	payload := strings.NewReader(str)
 
 	req, err := http.NewRequest("POST", url, payload)
