@@ -12,7 +12,7 @@ import (
 
 var (
 	urlsToCheck = []string{
-		"https://exampleadddd.com",
+		"https://dl.jzac.ir/",
 		"https://google.com",
 	}
 	statusMap = make(map[string]string)

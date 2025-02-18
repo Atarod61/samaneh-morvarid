@@ -9,7 +9,7 @@ import (
 
 func SendSMS() {
 	url := "https://panel.asanak.com/webservice/v1rest/sendsms"
-	str := "username=xxxxxxxx&password=xxxxxxx" +
+	str := "username=xxxxxxxx&password=xxxxxx" +
 		"source=98xxxxxxxx&destination=98xxxxxxx&message=سایت خراب شد،سلام" + url
 	payload := strings.NewReader(str)
 
