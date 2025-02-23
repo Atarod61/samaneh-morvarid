@@ -3,36 +3,37 @@ package send
 import (
 	"fmt"
 	"io"
+	"log"
 	"net/http"
-	"strings"
+	"net/url"
 )
 
-func SendSMS() error {
-	url := "https://panel.asanak.com/webservice/v1rest/sendsms"
-	str := "username=xxxxxxxx&password=xxxxxx" +
-		"source=98xxxxxxxxxx&destination=98xxxxxxxx&message=سایت خراب شد،سلام" //+ url
-	payload := strings.NewReader(str)
+func SendSMS(message string) error {
+	apiURL := "https://panel.asanak.com/webservice/v1rest/sendsms"
 
-	req, err := http.NewRequest("POST", url, payload)
+	// ساختن داده‌های ارسالی به صورت URL encoded
+	data := url.Values{}
+	data.Set("username", "xxxxxx")
+	data.Set("password", "xxxxxx")
+	data.Set("source", "98xxxxxxx")
+	data.Set("destination", "98xxxxxxx")
+	data.Set("message", " سایت دان شد")
+
+	// ساختن درخواست HTTP
+	resp, err := http.PostForm(apiURL, data)
 	if err != nil {
-		return fmt.Errorf("Error creating request: %w", err)
+		log.Printf("Failed to send SMS: %v", err)
+		return err
+	}
+	defer resp.Body.Close()
+
+	// خواندن پاسخ
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		log.Printf("Failed to read response body: %v", err)
+		return err
 	}
 
-	req.Header.Add("content-type", "application/x-www-form-urlencoded")
-
-	res, err := http.DefaultClient.Do(req)
-	if err != nil {
-		return fmt.Errorf("Error making request: %w", err)
-	}
-	defer res.Body.Close()
-
-	// Replacing ioutil.ReadAll with io.ReadAll
-	body, err := io.ReadAll(res.Body)
-	if err != nil {
-		return fmt.Errorf("Error reading response body: %w", err)
-	}
-
-	fmt.Println(res)
-	fmt.Println(string(body))
-	return nil // در صورت موفقیت، مقدار nil برگردانده می‌شود
+	fmt.Println("SMS API Response:", string(body))
+	return nil
 }
