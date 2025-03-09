@@ -13,10 +13,10 @@ func SendSMS(message string) error {
 
 	// ساختن داده‌های ارسالی به صورت URL encoded
 	data := url.Values{}
-	data.Set("username", "xxxxxx")
-	data.Set("password", "xxxxxx")
-	data.Set("source", "98xxxxxxx")
-	data.Set("destination", "98xxxxxxx")
+	data.Set("username", " 09126123391")
+	data.Set("password", "TEST110")
+	data.Set("source", "982191099135")
+	data.Set("destination", "989105856973")
 	data.Set("message", " سایت دان شد")
 
 	// ساختن درخواست HTTP
